@@ -35,7 +35,7 @@ final class HealthController extends AbstractController
 
         $isHealthy = true;
         foreach ($this->healthChecks as $healthCheck) {
-            if(!$healthCheck){
+            if(!$healthCheck->isHealthy()){
                 $isHealthy = false;
             }
             $resultHealthCheck[] = $healthCheck->check();
