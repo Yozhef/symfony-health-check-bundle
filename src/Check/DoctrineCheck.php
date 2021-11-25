@@ -36,7 +36,7 @@ class DoctrineCheck implements CheckInterface
     {
         return [
             'name' => 'doctrine',
-            'connection' => $this->isHealthy()
+            'status' => $this->isHealthy()
         ];
 
     }

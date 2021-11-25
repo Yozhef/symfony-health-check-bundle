@@ -28,14 +28,14 @@ class EnvironmentCheck implements CheckInterface
 
     public function check(): array
     {
-        $result = ['name' => 'self::CHECK_RESULT_KEY'];
+        $result = ['name' => 'environment'];
 
         try {
             $env = $this->container->getParameter('kernel.environment');
         } catch (Throwable $e) {
-            return array_merge($result, [self::CHECK_RESULT_KEY => 'Could not determine']);
+            return array_merge($result, ['status' => false]);
         }
 
-        return array_merge($result, [self::CHECK_RESULT_KEY => $env]);
+        return array_merge($result, ['status' => $env]);
     }
 }

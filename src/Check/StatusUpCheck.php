@@ -14,6 +14,9 @@ class StatusUpCheck implements CheckInterface
 
     public function check(): array
     {
-        return ['status' => 'up'];
+        return [
+            'name' => 'symfony',
+            'status' => true,
+        ];
     }
 }
