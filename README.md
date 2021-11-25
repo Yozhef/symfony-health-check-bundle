@@ -1,10 +1,6 @@
 Symfony Health Check Bundle
 =================================
 
-This project is based on https://github.com/MacPaw/symfony-health-check-bundle
-The project has been modified that check if one of the health checks is not healthy, the endpoint wil return a (500) error
-In addition, the doctrine connection check is modified to working version
-
 Installation
 ============
 
@@ -15,7 +11,7 @@ Open a command console, enter your project directory and execute:
 ###  Applications that use Symfony Flex
 
 ```console
-$ composer require jpvdw86/symfony-health-check-bundle
+composer require jpvdw86/symfony-health-check-bundle
 ```
 
 ### Applications that don't use Symfony Flex
@@ -24,7 +20,7 @@ Open a command console, enter your project directory and execute the
 following command to download the latest stable version of this bundle:
 
 ```console
-$ composer require jpvdw86/symfony-health-check-bundle
+composer require jpvdw86/symfony-health-check-bundle
 ```
 
 This command requires you to have Composer installed globally, as explained
@@ -149,4 +145,22 @@ health:
     methods: GET
     controller: SymfonyHealthCheckBundle\Controller\HealthController::healthCheckAction
 
+```
+
+How To Use Healthcheck In Docker
+----------------------------------
+You can add to follow line to you docker-compose / docker-stack file.
+
+```yaml
+healthcheck:
+  test: curl -sS http://localhost/health || exit 1
+  interval: 5s
+  timeout: 3s
+  retries: 3
+  start_period: 15s
+```
+Or in your docker file
+
+```dockerfile
+HEALTHCHECK --start-period=15s --interval=5s --timeout=3s --retries=3 CMD curl -sS http://localhost/health || exit 1
 ```
