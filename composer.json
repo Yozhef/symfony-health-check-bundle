@@ -38,6 +38,5 @@
     "autoload-dev": {
     },
     "scripts": {
-    },
-    "target-dir": "jpvdw86/symfonyHealthCheckBundle"
+    }
 }
