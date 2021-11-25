@@ -15,7 +15,7 @@ Open a command console, enter your project directory and execute:
 ###  Applications that use Symfony Flex
 
 ```console
-$ composer require macpaw/symfony-health-check-bundle
+$ composer require jpvdw86/symfony-health-check-bundle
 ```
 
 ### Applications that don't use Symfony Flex
@@ -24,7 +24,7 @@ Open a command console, enter your project directory and execute the
 following command to download the latest stable version of this bundle:
 
 ```console
-$ composer require macpaw/symfony-health-check-bundle
+$ composer require jpvdw86/symfony-health-check-bundle
 ```
 
 This command requires you to have Composer installed globally, as explained
@@ -61,12 +61,14 @@ Create Symfony Health Check Bundle Config:
 ----------------------------------
 `config/packages/symfony_health_check.yaml`
 
-Configurating health check - all available you can see [here](https://github.com/MacPaw/symfony-health-check-bundle/tree/master/src/Check).
+Configurating health check - all available you can see [here](https://github.com/jpvdw86/symfony-health-check-bundle/tree/master/src/Check).
 
 ```yaml
 symfony_health_check:
-    health_checks:
-        - id: symfony_health_check.doctrine_check
+  health_checks:
+    - id: symfony_health_check.status_up_check
+    - id: symfony_health_check.doctrine_check
+    - id: symfony_health_check.environment_check
 ```
 
 Create Symfony Health Check Bundle Routing Config:
@@ -128,9 +130,11 @@ Then we add our custom health check to collection
 
 ```yaml
 symfony_health_check:
-    health_checks:
-        - id: symfony_health_check.doctrine_check
-        - id: custom_health_check
+  health_checks:
+    - id: symfony_health_check.status_up_check
+    - id: symfony_health_check.doctrine_check
+    - id: symfony_health_check.environment_check
+    - id: custom_health_check
 ```
 
 How Change Route:
