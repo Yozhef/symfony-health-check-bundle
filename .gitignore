@@ -1,0 +1,14 @@
+.idea
+build
+vendor
+var
+/composer.lock
+/.phpcs-cache
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###
+
+/node_modules/
+/package-lock.json
