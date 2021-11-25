@@ -17,21 +17,19 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Jean-Paul",
-            "email": "info@jpvdw.nl",
-            "homepage": "https://www.jpvdw.nl",
-            "role": "Software Engineer"
+            "name": "Jean-Paul van der Wegen",
+            "email": "info@jpvdw.nl"
         }
     ],
     "require": {
         "php": ">=7.4",
-        "symfony/framework-bundle": "^4.1.12 || ^5.0"
+        "symfony/framework-bundle": ">=4.1.0"
     },
     "require-dev": {
         "ext-json": "*",
-        "symfony/yaml": "^3.4 || ^4.0 || ^5.0",
-        "symfony/browser-kit": "^3.4 || ^4.4 || ^5.0"
+        "symfony/yaml": "^3.4 || ^4.0 || ^5.0"
     },
+    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "SymfonyHealthCheckBundle\\": "src"
@@ -40,5 +38,6 @@
     "autoload-dev": {
     },
     "scripts": {
-    }
+    },
+    "target-dir": "jpvdw86/symfonyHealthCheckBundle"
 }
