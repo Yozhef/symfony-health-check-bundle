@@ -30,27 +30,17 @@ of the Composer documentation.
 Step 2: Enable the Bundle
 ----------------------------------
 Then, enable the bundle by adding it to the list of registered bundles
-in the `app/AppKernel.php` file of your project:
+in the `config/bundels.php` file of your project:
 
 ```php
 <?php
-// app/AppKernel.php
+// config/bundels.php
 
-// ...
-class AppKernel extends Kernel
-{
-    public function registerBundles()
-    {
-        $bundles = array(
-            // ...
-            SymfonyHealthCheckBundle\SymfonyHealthCheckBundle::class => ['all' => true],
-        );
+return [
+       // ...
+       SymfonyHealthCheckBundle\SymfonyHealthCheckBundle::class => ['all' => true],
+];
 
-        // ...
-    }
-
-    // ...
-}
 ```
 
 Create Symfony Health Check Bundle Config:
@@ -101,10 +91,10 @@ It is possible to add your custom health check:
 
 ```php
 <?php
+// src/Check/CustomCheck.php
+namespace App\Check;
 
-declare(strict_types=1);
-
-namespace YourProject\Check;
+use SymfonyHealthCheckBundle\Check\CheckInterface;
 
 class CustomCheck implements CheckInterface
 {
@@ -133,7 +123,7 @@ symfony_health_check:
     - id: symfony_health_check.status_up_check
     - id: symfony_health_check.doctrine_check
     - id: symfony_health_check.environment_check
-    - id: custom_health_check
+    - id: custom_check
 ```
 
 How Change Route:
