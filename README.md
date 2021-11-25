@@ -121,7 +121,10 @@ class CustomCheck implements CheckInterface
     
     public function check(): array
     {
-        return [self::CHECK_RESULT_KEY => true];
+         return [
+            'name' => self::CHECK_RESULT_KEY,
+            'status' => $this->isHealthy()
+        ];
     }
 }
 ```
