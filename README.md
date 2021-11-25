@@ -8,17 +8,6 @@ Step 1: Download the Bundle
 ----------------------------------
 Open a command console, enter your project directory and execute:
 
-###  Applications that use Symfony Flex
-
-```console
-composer require jpvdw86/symfony-health-check-bundle
-```
-
-### Applications that don't use Symfony Flex
-
-Open a command console, enter your project directory and execute the
-following command to download the latest stable version of this bundle:
-
 ```console
 composer require jpvdw86/symfony-health-check-bundle
 ```
